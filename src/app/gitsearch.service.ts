@@ -34,7 +34,18 @@ export class GitsearchService {
         },
         error=>{
                 reject(error)
+        }
+
+        this.http.get<ApiResponse>("https://api.github.com/users/" + username + "/repos).toPromise().then(response=>{
+            
+
+            resolve()
+        },
+        error=>{
+                reject(error)
             }
+
+
         )
     })
 
