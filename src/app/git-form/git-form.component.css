@@ -5,3 +5,7 @@
 div.repository {
  border-left: 1px solid #d4d4d4;
 }
+
+p.small {
+	font-size: 11px;
+}

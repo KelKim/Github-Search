@@ -7,13 +7,18 @@ import { Repository } from './repository';
 export class GitsearchService {
 
 	user:User;
-	// repository:Repository;
+	repository:Repository;
+	repoData=[];
+	newRepoData :any = [];
   	
   	constructor(private http: HttpClient) { 
   		this.user = new User("",0,"",new Date());
+  		this.repository = new Repository("","",new Date(),"");
   	}
 
   	getUserData(username: String){
+
+  	this.repoData.length = 0;
   		
   	interface ApiResponse {
   		login: string,
@@ -36,9 +41,12 @@ export class GitsearchService {
                 reject(error)
         }
 
-        this.http.get<ApiResponse>("https://api.github.com/users/" + username + "/repos).toPromise().then(response=>{
+        this.http.get<any>("https://api.github.com/users/" + username + "/repos").toPromise().then(response=>{
             
-
+        	for(var i=0;i<response.length;i++){
+        		this.newRepoData = new Repository(response[i].name,response[i].description,response[i].updated_at,response[i].clone_url);
+        		this.repoData.push(this.newRepoData);
+        	}
             resolve()
         },
         error=>{

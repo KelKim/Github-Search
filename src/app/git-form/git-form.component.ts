@@ -13,9 +13,11 @@ export class GitFormComponent implements OnInit {
   user:User;
   username: string;
   gitsearchService:GitsearchService;
+  hideResults:boolean;
 
   submitUser(){
     this.gitsearchService.getUserData(this.username);
+    this.hideResults = true;
   }
 
   constructor(gitsearchService:GitsearchService) { 
@@ -23,6 +25,7 @@ export class GitFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.repository = this.gitsearchService.repoData;
   }
 
 }
