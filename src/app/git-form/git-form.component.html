@@ -1,11 +1,24 @@
-<div class="row mt100">
+<div class="row mt100 mb40">
   <div class="col-md-4"></div>
   <div class="col-md-4">
   <p>Please enter a Github Username:</p>
   <form (ngSubmit)='submitUser()'> 
-    <input class="form-control mb15" type="text" name="username" placeholder="Enter Username..." autocomplete="off">
+    <input class="form-control mb20" type="text" name="username" [(ngModel)]="username" placeholder="Enter Username..." autocomplete="off">
     <button type="submit" class="btn btn-success btn-block">Search User</button>
   </form>
   </div>
   <div class="col-md-4"></div>
+</div>
+<div class="row">
+	<div class="col-md-2"></div>
+	<div class="col-md-2"><!-- User Data -->
+		<h3 class="text-center"><i class="fa fa-github-square fa-2x"></i>{{gitsearchService.user.login}}</h3>
+		<img src="{{gitsearchService.user.avatar_url}}" height="200" width="200"> 
+		<p class="mb0">Number of Repos: {{gitsearchService.user.public_repos}}</p>
+		<p>Updated at: {{gitsearchService.user.updated_at|date}}</p>
+	</div>
+	<div class="col-md-6"><!-- Repository Data -->
+		
+	</div>
+	<div class="col-md-2"></div>
 </div>

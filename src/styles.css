@@ -1,5 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    font-family: 'skranjiregular', san-serif;
+}
 
+h3 {
+    font-family: 'skranjibold', san-serif;
+}
 .btn-block {
     display: block;
     width: 100%;
@@ -29,6 +35,14 @@
     margin-top: 100px;
 }
 
-.mb15 {
+.mb20 {
     margin-bottom:20px;
+}
+
+.mb40 {
+    margin-bottom:40px;
+}
+
+.mb0 {
+    margin-bottom: 0;
 }
